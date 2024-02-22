@@ -48,7 +48,7 @@ func convert(num int) string {
 	if smal < 20 && smal > 0 {
 		res = _smallNumbers[smal]
 	}
-	if num > 0 && smal%10 == 0 {
+	if num > 0 && smal%10 == 0 && smal != 10 {
 		res = ""
 	}
 
@@ -57,6 +57,7 @@ func convert(num int) string {
 
 func tens(num int) string {
 	_ten := num % 100 / 10
+
 	return strings.TrimSpace(hundred(num) + " " + _tens[_ten])
 }
 

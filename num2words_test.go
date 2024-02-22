@@ -1,15 +1,21 @@
 package num2words
 
 import (
+	"fmt"
 	"testing"
 )
 
 func TestConvert(t *testing.T) {
 	cases := map[int]string{
+		-11:          "минус одинадцать",
 		-5:           "минус пять",
 		1:            "один",
+		2:            "два",
+		8:            "восемь",
+		10:           "десять",
 		12:           "двенадцать",
 		21:           "двадцать один",
+		110:          "сто десять",
 		121:          "сто двадцать один",
 		320:          "триста двадцать",
 		359:          "триста пятьдесят девять",
@@ -24,8 +30,8 @@ func TestConvert(t *testing.T) {
 
 	for k, v := range cases {
 		res := Convert(k)
-		// fmt.Println(fmt.Sprintf("%s = %s, %v", v, res, res == v))
 		if res != v {
+			fmt.Println(fmt.Sprintf("%s = %s, %v", v, res, res == v))
 			t.Fail()
 		}
 	}
